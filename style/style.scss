@@ -12,10 +12,11 @@ body {
     font-size: 16px;
     margin: 0;
 
+
     h1,
     h2,
     h3 {
-        color: $dark_Blue;
+        color: $dark_blue;
     }
 
     h2 {
@@ -23,15 +24,10 @@ body {
     }
 
     p {
-        color: $dark_Grayish_Blue;
+        color: $dark_grayish_blue;
     }
 
     header {
-        background-image: url(../images/bg-tablet-pattern.svg);
-        background-repeat: no-repeat;
-        background-position-x: right;
-        background-position-y: bottom;
-        background-size: contain;
 
         .header-header {
             @include flex-justify(space-evenly);
@@ -42,14 +38,27 @@ body {
             }
 
             nav {
-                width: 40%;
+                width: 600px;
                 @include flex-justify(space-evenly);
 
                 a {
                     text-decoration: none;
-                    color: $dark_Blue;
+                    color: $dark_blue;
+                }
+
+                a:hover {
+                    color: $dark_grayish_blue;
                 }
             }
+
+            .fa-bars {
+                display: none;
+                color: $dark_blue;
+            }
+            .fa-bars:hover {
+                cursor: pointer;
+            }
+
         }
 
         .header-info {
@@ -57,7 +66,7 @@ body {
             padding: 50px 0;
 
             .text-content {
-                width: 35%;
+                width: 500px;
 
                 h1 {
                     font-size: 50px;
@@ -65,7 +74,7 @@ body {
                 }
 
                 p {
-                    width: 74%;
+                    width: 350px;
                 }
 
                 button {
@@ -74,7 +83,7 @@ body {
             }
 
             .image-content {
-                width: 35%;
+                width: 450px;
 
                 img {
                     width: 100%;
@@ -89,6 +98,7 @@ body {
 
     .about-us {
         @include flex-justify(space-evenly);
+        padding-bottom: 50px;
 
         h2,
         h3 {
@@ -96,26 +106,32 @@ body {
         }
 
         .header-section {
-            width: 35%;
+            width: 450px;
 
             p {
-                width: 74%;
+                width: 350px;
             }
         }
 
         .content-container {
-            display: flex;
-            flex-direction: column;
-            width: 37%;
+            @include flex-column(column);
+            width: 460px;
 
 
             .item-container {
-                display: flex;
+                .item-header {
+                    display: flex;
 
-                .item {
-                    padding-right: 20px;
+                    h3 {
+                        margin: 0;
+                        padding-left: 20px;
+                    }
                 }
 
+            }
+
+            .item-content {
+                padding-left: 76px;
             }
         }
     }
@@ -123,15 +139,17 @@ body {
     .community {
         @include flex-column(column, center);
         padding-bottom: 50px;
+
         .card {
             margin-top: 100px;
             width: 600px;
             padding-bottom: 20px;
+
             .card-container {
-                background-color: $very_Light_Gray;
+                background-color: $very_light_gray;
                 padding: 3em 1em;
                 position: relative;
-                display: inline-block;
+                @include flex-justify(center);
                 min-height: 100%;
                 min-width: 335px;
                 padding-left: 50px;
@@ -140,8 +158,7 @@ body {
                 .avatar {
 
                     position: absolute;
-                    top: -20%;
-                    left: 40%;
+                    top: -30%;
                     width: 20%;
 
                     img {
@@ -162,13 +179,14 @@ body {
     }
 
     .simplify {
-        background-image: url(../images/bg-simplify-section-desktop.svg);
-        background-color: $bright_Red;
         padding: 50px 180px;
         @include flex-justify(space-between);
+        background-image: url(../images/bg-simplify-section-desktop.svg);
+        background-color: $bright_red;
+        background-position-y: 197px;
 
         h2 {
-            color: $very_Light_Gray;
+            color: $very_light_gray;
             width: 40%;
             margin: 0;
             font-size: 30px;
@@ -180,13 +198,18 @@ body {
     }
 
     footer {
-        background-color: $very_Dark_Blue;
+        background-color: $very_dark_blue;
         @include flex-justify(space-evenly);
         padding: 50px 80px;
+        flex-wrap: wrap;
 
         a,
         i {
-            color: $very_Light_Gray;
+            color: $very_light_gray;
+        }
+
+        .mostrar-mobile {
+            display: none;
         }
 
         .icons-container {
@@ -195,7 +218,15 @@ body {
 
             .social {
                 @include flex-justify(space-between);
+
             }
+
+        }
+
+        .navigation-page {
+            @include flex-justify(space-between);
+            width: 350px;
+            margin: 0 70px;
         }
 
         .nav-one,
@@ -212,6 +243,7 @@ body {
         form {
             @include flex-column(column, space-between);
 
+
             fieldset {
                 border: none;
 
@@ -227,20 +259,25 @@ body {
             }
 
         }
+
+        a:hover,
+        i:hover {
+            color: $bright_red;
+        }
     }
 
     .button,
     .item-button {
-        @include button-style($bright_Red, #FFF);
+        @include button-style($bright_red, #FFF);
         box-shadow: 0px 5px 11px 0px #f25f3a;
     }
 
     .button-light {
-        @include button-style($very_Light_Gray, $bright_Red);
+        @include button-style($very_light_gray, $bright_red);
     }
 
     .btn-submit {
-        @include button-style($bright_Red, #FFF);
+        @include button-style($bright_red, #FFF);
     }
 
     .button-light:hover,
@@ -248,4 +285,283 @@ body {
     .btn-submit:hover {
         cursor: pointer;
     }
+
+    .btn-submit:hover,
+    .button:hover {
+        background-color: #ff8e71;
+    }
+
+    .button-light:hover {
+        color: #ff8e71;
+    }
+}
+
+.mobile-nav-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    @include flex-justify(center);
+
+    img {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        width: 40px;
+        height: auto;
+    }
+    img:hover {
+        cursor: pointer;
+    }
+
+    .mobile-nav {
+        @include flex-column(column, center);
+        position: fixed;
+        z-index: 2;
+        top: 150px;
+        width: 90%;
+        padding: 40px 0;
+        background-color: $very_light_gray;
+        line-height: 2.7;
+        border-radius: 7px;
+
+        a {
+            text-decoration: none;
+            color: $very_dark_blue;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    }
+}
+
+.hidden-nav {
+    display: none !important;
+}
+
+@media (max-width: 1074px) and (min-width: 801px) {
+    footer {
+        form {
+            padding-top: 30px;
+            width: 70%;
+
+            fieldset {
+                text-align: center;
+                width: 100%;
+
+                #inputEmail {
+                    width: 60%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    body {
+        width: 100%;
+
+        header {
+            width: 100%;
+
+            .header-header {
+                padding: 30px;
+                width: 100%;
+
+                a,
+                .nav-button {
+                    display: none;
+                }
+
+                img {
+
+                    width: 40%;
+                    height: 37px;
+                }
+
+                .fa-bars {
+                    display: block;
+                    font-size: 40px;
+                }
+            }
+
+            .header-info {
+                @include flex-column(column-reverse, center);
+                width: 100%;
+
+                .text-content {
+                    text-align: center;
+                    width: 97%;
+
+                    p {
+                        width: 90%;
+                        display: inline-block;
+                    }
+                }
+
+                .image-content {
+                    width: 97%;
+                }
+            }
+        }
+
+        .about-us {
+            @include flex-column(column, center);
+            width: 100%;
+
+            .header-section {
+                text-align: center;
+                margin-bottom: 20px;
+                width: 90%;
+
+                p {
+                    display: inline-block;
+                }
+            }
+
+            .content-container {
+                width: 95%;
+
+                .item-container {
+                    @include flex-column(column);
+                    margin-bottom: 20px;
+
+                    .item-header {
+                        display: flex;
+                        align-items: center;
+                        background-color: $very_pale_red;
+                        border-radius: 30px 0 0 30px;
+
+                        .item-button {
+                            box-shadow: none;
+                            width: 15%;
+                        }
+
+                        h3 {
+                            padding: 5px 0 5px 30px;
+                            width: 85%;
+                        }
+                    }
+
+                    .item-content {
+                        padding-left: 0;
+
+                        p {
+                            text-align: justify;
+                        }
+                    }
+                }
+            }
+        }
+
+        .community {
+            header {
+                text-align: center;
+            }
+
+            .card {
+                width: 90%;
+
+                .card-container {
+
+                    .avatar {
+                        width: 120px;
+                        height: 120px;
+
+                        img {
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+                }
+            }
+        }
+
+        .simplify {
+            @include flex-column(column, center);
+            background-image: url(../images/bg-simplify-section-mobile.svg);
+            background-repeat: no-repeat;
+            width: 100%;
+            padding: 50px 0;
+
+            h2 {
+                margin-bottom: 20px;
+                text-align: center;
+                width: 90%;
+            }
+        }
+
+        footer {
+            @include flex-column(column-reverse, center);
+            padding: 50px 0;
+
+            .icons-container,
+            .social,
+            .navigation-page,
+            form {
+                width: 100%;
+
+            }
+
+            .mostrar-mobile {
+                display: block;
+
+                p {
+                    font-size: 14px;
+                }
+            }
+
+            .navigation-page {
+                @include flex-justify(space-around);
+                margin: 0;
+                padding-top: 15px;
+            }
+
+            .icons-container {
+                @include flex-column(column-reverse, center);
+                width: 90%;
+                height: 130px;
+                margin: 40px 0;
+
+                .social {
+                    i {
+                        font-size: 30px;
+                    }
+                }
+
+                .logo {
+                    @include flex-justify(center);
+                }
+            }
+
+            form {
+                align-items: center;
+
+                .email-form {
+                    width: 90%;
+
+                    #inputEmail {
+                        width: 77%;
+                    }
+
+                    .btn-submit {
+                        width: 20%;
+                    }
+                }
+
+                fieldset {
+                    padding: 10px 0;
+
+                    .no-mostrar-mobile {
+                        display: none;
+                    }
+
+
+                }
+
+            }
+        }
+    }
+
 }
